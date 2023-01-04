@@ -1,0 +1,11 @@
+*.mpf
+work
+db
+*.qpf
+*.mti
+*.vstf
+*.vcd
+*.bak
+*.wlf
+transcript
+output_files
