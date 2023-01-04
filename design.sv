@@ -2,7 +2,7 @@
 
 // Code your design here
 
-module fifo (
+module fifo #(parameter FIFO_DEPTH = 5, parameter FIFO_WIDTH = 66 ) (
   clk, 
   resetN, 
   write_en, 
@@ -13,8 +13,7 @@ module fifo (
   full,
   ram
 ); 
-  parameter FIFO_WIDTH = 65;
-  parameter FIFO_DEPTH = 5;
+
   input clk; 
   input resetN; 
   input write_en; 
@@ -110,7 +109,7 @@ bit new_flag;
 
 endmodule //fifo 
 
-module eth_rcv_fsm(
+module eth_rcv_fsm #(parameter FIFO_DEPTH = 5 ) (
   input clk,
   input resetN,
   input [63:0] inData, 
@@ -190,9 +189,9 @@ endmodule
 
 //Ethernet Send FSM
 
-module eth_send_fsm(input clk,
+module eth_send_fsm #(parameter FIFO_DEPTH = 5 )(input clk,
   input resetN,
-  input [65:0] inData[0:4],
+  input [65:0] inData[0:FIFO_DEPTH-1],
   output reg outSop,
   output reg outEop,
   output reg outRdEn,
@@ -200,7 +199,6 @@ module eth_send_fsm(input clk,
   output reg outvld
 );
 
- parameter FIFO_DEPTH = 5;
 reg[2:0] nState;
 reg[2:0] pState;
 
@@ -214,7 +212,7 @@ reg[47:0] src_addr;
 
 integer read_ptr, read_ptr2;
 
-  reg [65:0]inData_d[0:4];
+  reg [65:0]inData_d[0:FIFO_DEPTH-1];
   reg[47:0] swap_var;  
   bit my_flag;
 integer i =0;
@@ -365,6 +363,7 @@ wire fifo_empty;
 wire fifo_full;
 reg fifo_rd_en;
 reg [6:0]counter;
+
   reg [65:0]fifo_queue[0:4];
   
   
@@ -380,7 +379,7 @@ reg [6:0]counter;
   .ram(fifo_queue)
 );
 
-eth_rcv_fsm portA_rcv_fsm(
+eth_rcv_fsm #(.FIFO_DEPTH(5)) portA_rcv_fsm(
   .clk(clk),
   .resetN(resetN),
   .inData(inDataA),
@@ -391,7 +390,7 @@ eth_rcv_fsm portA_rcv_fsm(
   .outData(fifo_wr_data)
 );
 
-eth_send_fsm portA_send_fsm(
+eth_send_fsm #(.FIFO_DEPTH(5)) portA_send_fsm(
   .clk(clk),
   .resetN(resetN),
   .inData(fifo_queue),
