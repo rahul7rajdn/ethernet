@@ -13,8 +13,8 @@ class eth_packet_c;
 
   int pkt_size_bytes;
   byte pkt_full[$];
-   integer a;
-   integer b;
+
+
   constraint addr_c {
     src_addr inside {'hABCD_1234_5678, 'hEE11_FF22_DD33};
     dst_addr inside {'hABCD_1234_5678, 'hEE11_FF22_DD33};
@@ -70,23 +70,17 @@ class eth_packet_c;
    pkt_size_bytes = pkt_data.size() +6+6+4; //data byes + 6B src +6B dest + 4B CRC
    $display("packet :: entered append_data_packet");
    for(integer i=0; i < 6; i++) begin
-     $display("packet :: i loop");
-
      pkt_full.push_back( dst_addr_copy[47:40]);
-     dst_addr_copy = dst_addr_copy << 8;  //[(47-(8*i)):(40-(8*i))]);
+     dst_addr_copy = dst_addr_copy << 8;
    end
-   for(integer j=0; j < 6; j++) begin
-     $display("packet :: j loop");
-     a= 47-(8*j);
-     b=40-(8*j);     
+   for(integer j=0; j < 6; j++) begin     
      pkt_full.push_back(src_addr_copy[47:40]);
-     src_addr_copy = src_addr_copy << 8;   //[(47-(8*j)):(40-(8*j))]);
+     src_addr_copy = src_addr_copy << 8;
    end
    //Actual Data bytes
    for(integer k=0; k < 1264; k++) begin
-       $display("packet :: k loop");
        pkt_full.push_back(pkt_data[k]);
-       $display("packet ::append_data_packet pkt_data at k = %d = %x", k, pkt_data[k] );  
+       //$display("packet ::append_data_packet pkt_data at k = %d = %x", k, pkt_data[k] );  
    end
    for(integer l=0; l < 4; l++) begin
 
@@ -99,7 +93,7 @@ class eth_packet_c;
  //return a string that prints all fields
  function string to_string();
    string msg;
-   msg = $psprintf("sa=%x da=%x crc=%x",src_addr,dst_addr, pkt_crc);
+   msg = $psprintf("dst_addr=%x, src_addr =%x, crc=%x",dst_addr,src_addr, pkt_crc);
    return msg;
  endfunction
 

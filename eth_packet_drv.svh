@@ -45,7 +45,7 @@ class eth_packet_drv_c;
       cur_dword[23:16] = pkt.pkt_full[8*count+5];
       cur_dword[15:8] = pkt.pkt_full[8*count+6];
       cur_dword[7:0] = pkt.pkt_full[8*count+7];
-      $display("time=%t packet_drv::drive_pkt_port:count=%0d cur_dword=%h",$time,count,cur_dword);
+      
       if(count==0) begin
         rtl_intf.eth_drv_cb.inSop <=1'b1;
         rtl_intf.eth_drv_cb.inData <= cur_dword;
@@ -61,7 +61,8 @@ class eth_packet_drv_c;
         rtl_intf.eth_drv_cb.inData <= cur_dword;
         count= count+1;
       end
-      $display("time=%t packet_drv::drive_pkt_port:count=%0d, rtl_intf.eth_drv_cb.inData ==== %x", $time,count, rtl_intf.eth_drv_cb.inData);
+      //$display("time=%t packet_drv::drive_pkt_port:count=%0d cur_dword=%h",$time,count,cur_dword);
+      //$display("time=%t packet_drv::drive_pkt_port:count=%0d, rtl_intf.eth_drv_cb.inData ==== %x", $time,count, rtl_intf.eth_drv_cb.inData);
     end
   endtask
 

@@ -59,9 +59,7 @@ bit new_flag;
   always @(posedge clk) begin 
     if ((write_en == 1'b1) && (tmp_full == 1'b0)) begin 
       ram[write_ptr] = data_in;
-      $display("time ==== %d ns", $time);
-      $display("write_ptr = %d", write_ptr);
-      $display("ram[write_ptr] = %x", ram[write_ptr]);
+      //$display("time ==== %d ns: write_ptr = %d, ram[write_ptr] = %x ", $time, write_ptr, ram[write_ptr] );
       tmp_empty <= 1'b0; 
       write_ptr = (write_ptr + 1) % FIFO_DEPTH; 
       if ( read_ptr == write_ptr ) begin 
@@ -72,9 +70,7 @@ bit new_flag;
     end 
     if ((read_en == 1'b1) && (tmp_empty == 1'b0)) begin 
       data_out = ram[read_ptr];
-      $display("time ^^^^^^^^^ %d ns", $time);
-      $display("read_ptr = %d", read_ptr);
-      $display("ram[read_ptr] = %x", ram[read_ptr]);
+      //$display("time ^^^^^^^^^ %d ns: read_ptr = %d, ram[read_ptr] = %x ", $time, read_ptr, ram[read_ptr] );
       tmp_full <= 1'b0; 
       read_ptr = (read_ptr + 1) % FIFO_DEPTH; 
       if ( read_ptr == write_ptr ) begin 
@@ -220,8 +216,8 @@ integer i =0;
   always @(pState or inData[0] or inData[1] or inData[2]  ) begin
   case(pState) 
     IDLE: begin
-      $display("%d ns inData[read_ptr] == %x", $time, inData[read_ptr]);
-      $display("read_ptr = %d", read_ptr);
+      // $display("%d ns inData[read_ptr] == %x", $time, inData[read_ptr]);
+      // $display("read_ptr = %d", read_ptr);
       
       if(inData[read_ptr][64] == 1) begin
         nState = DEST_ADDR_RCVD;
@@ -232,14 +228,14 @@ integer i =0;
       end
     end
     DEST_ADDR_RCVD: begin
-      $display("%d ns inData[read_ptr] === %x", $time, inData[read_ptr]);
-      $display("read_ptr = %d", read_ptr);
+      // $display("%d ns inData[read_ptr] === %x", $time, inData[read_ptr]);
+      // $display("read_ptr = %d", read_ptr);
       nState=DATA_RCV;
       read_ptr = (read_ptr + 1) % FIFO_DEPTH;
     end
     DATA_RCV: begin
-      $display("%d ns inData[read_ptr] ==== %x", $time, inData[read_ptr]);
-      $display("read_ptr = %d", read_ptr);
+      // $display("%d ns inData[read_ptr] ==== %x", $time, inData[read_ptr]);
+      // $display("read_ptr = %d", read_ptr);
       if(inData[read_ptr][65] == 1) begin //last dword -> CRC
         nState = DONE;
         outvld =0;
@@ -277,7 +273,7 @@ always @(posedge clk) begin
     inData_d[3] <= 0;
     outvld =0;
   end else begin
-$display(" [%d ns] : i = %d, inData[i] = %x, inData_d[i] = %x",$time, i,  inData[i], inData_d[i]);
+// $display(" [%d ns] : i = %d, inData[i] = %x, inData_d[i] = %x",$time, i,  inData[i], inData_d[i]);
     inData_d[i] <= inData[i];
     i = (i+1) % FIFO_DEPTH;
 /*
@@ -303,10 +299,10 @@ always @(posedge clk) begin
      my_flag = 0;
     if(inData_d[read_ptr2][64] == 1) begin
       $display("inData_d[read_ptr2] = %x", inData_d[read_ptr2]);
-      $display("inData_d[read_ptr2 + 1] = %x", inData_d[read_ptr2 + 1]);
+      $display("inData_d[read_ptr2 + 1] = %x", inData_d[((read_ptr2 + 1)  % FIFO_DEPTH)]);
       
-      swap_var = { inData_d[read_ptr2][15:0], inData_d[read_ptr2 + 1][63:32]};
-      { inData_d[read_ptr2][15:0], inData_d[read_ptr2 + 1][63:32]} = inData_d[read_ptr2][63:16];
+      swap_var = { inData_d[read_ptr2][15:0], inData_d[((read_ptr2 + 1)  % FIFO_DEPTH)][63:32]};
+      { inData_d[read_ptr2][15:0], inData_d[((read_ptr2 + 1)  % FIFO_DEPTH)][63:32]} = inData_d[read_ptr2][63:16];
       inData_d[read_ptr2][63:16] = swap_var;
 
       my_flag =1;
@@ -315,7 +311,7 @@ always @(posedge clk) begin
       inData_d[read_ptr2][63:16] <= { inData_d[read_ptr2][15:0], inData_d[read_ptr2 + 1][63:32]};
 */ 
      $display("AFTER SWAP, \n inData_d[read_ptr2] = %x", inData_d[read_ptr2]);
-      $display("inData_d[read_ptr2 + 1] = %x", inData_d[read_ptr2 + 1]);
+      $display("inData_d[read_ptr2 + 1] = %x", inData_d[((read_ptr2 + 1)  % FIFO_DEPTH)]);
 
     end
 

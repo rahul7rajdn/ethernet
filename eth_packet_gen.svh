@@ -25,7 +25,7 @@ class eth_packet_gen_c;
     
 
     $display("packet_gen::run called");
-    $display("packet as string src, dest, crc = %s", pkt.to_string());
+    $display("packet as string = %s", pkt.to_string());
 
       
   endtask

@@ -48,7 +48,7 @@ class eth_packet_mon_c;
        count=0;
      end else if(count >0) begin
        pkt.pkt_data.push_back(rtl_intf.eth_mon_cb.inData);
-       $display("time=%0t packet_mon: count = %d,  rtl_intf.eth_mon_cb.inData ==== %x", $time,count,  rtl_intf.eth_mon_cb.inData);
+       // $display("time=%0t packet_mon: count = %d,  rtl_intf.eth_mon_cb.inData ==== %x", $time,count,  rtl_intf.eth_mon_cb.inData);
        count++;
      end
    end
