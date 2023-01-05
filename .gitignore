@@ -7,5 +7,4 @@ db
 *.vcd
 *.bak
 *.wlf
-transcript
 output_files

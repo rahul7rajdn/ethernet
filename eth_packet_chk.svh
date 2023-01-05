@@ -50,11 +50,13 @@ class eth_packet_chk_c ;
    function void chk_exp_packet_q(int port, eth_packet_c pkt);
      eth_packet_c exp;
 	   exp = exp_pkt_A_q.pop_front();
+     $display("================================================================================================");
      if(pkt.compare_pkt(exp)) begin
        $display("Packet on port 1 (output A) matches");
      end else begin
        $display("Packet on port 1 (output A) mismatches");
      end
+     $display("================================================================================================");
    endfunction
 
 endclass
