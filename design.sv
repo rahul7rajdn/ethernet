@@ -39,8 +39,10 @@ module fifo #(parameter FIFO_DEPTH = 5, parameter FIFO_WIDTH = 66 ) (
   integer read_ptr;
   integer new_count; 
 bit new_flag;
+reg resetQ;
+reg resetQ2;
 
-  always@(negedge resetN)  begin
+  always@(negedge resetN or posedge resetQ2)  begin
     data_out = 0;
     tmp_empty = 1'b1; 
     tmp_full = 1'b0; 
@@ -77,11 +79,18 @@ bit new_flag;
         tmp_empty <= 1'b1; 
       end
 
-      if(ram[read_ptr][65] == 1) begin
+      if(data_out[65] == 1) begin
+        resetQ <=1;
+        /*
         for(integer i=0; i< FIFO_DEPTH; i++) begin
           ram[(i+2)%FIFO_DEPTH] <=0;
         end
+        */
       end
+      else begin
+        resetQ <=0;
+      end
+
 
 /*
 
@@ -102,6 +111,9 @@ bit new_flag;
 
     end 
   end 
+always@(posedge clk) begin
+resetQ2 <= resetQ;
+end
 
 endmodule //fifo 
 
