@@ -34,7 +34,7 @@ class eth_packet_chk_c ;
     $display("packet_chk::process_pkt on port=%0d called", port);
     forever begin
       mbx_in[port].get(pkt);
-      $display("time=%0t packet_chk::got packet on port=%0d packet=%s",$time, port, pkt.to_string());
+      $display("time=%0t packet_chk::got packet on port=%0d  pkt=%s  ",$time, port, pkt.to_string());
       if(port == 0) begin //input packets
         gen_exp_packet_q(pkt);
       end else begin //output packets
@@ -52,9 +52,9 @@ class eth_packet_chk_c ;
 	   exp = exp_pkt_A_q.pop_front();
      $display("================================================================================================");
      if(pkt.compare_pkt(exp)) begin
-       $display("Packet on port 1 (output A) matches");
+       $display("Packet on OUTPUT matches");
      end else begin
-       $display("Packet on port 1 (output A) mismatches");
+       $display("Packet on OUTPUT mismatches");
      end
      $display("================================================================================================");
    endfunction

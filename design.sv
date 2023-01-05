@@ -1,6 +1,6 @@
 
 
-// Code your design here
+// Design code
 
 module fifo #(parameter FIFO_DEPTH = 5, parameter FIFO_WIDTH = 66 ) (
   clk, 
@@ -37,19 +37,13 @@ module fifo #(parameter FIFO_DEPTH = 5, parameter FIFO_WIDTH = 66 ) (
 
   integer write_ptr; 
   integer read_ptr;
-  integer new_count; 
-bit new_flag;
-reg resetQ;
-reg resetQ2;
 
-  always@(negedge resetN or posedge resetQ2)  begin
+  always@(negedge resetN)  begin
     data_out = 0;
     tmp_empty = 1'b1; 
     tmp_full = 1'b0; 
     write_ptr = 0; 
     read_ptr = 0;
-    new_flag=0;
-    new_count =0;
     for(integer j =0; j< FIFO_DEPTH; j++)begin
        ram[j] =0;
     end
@@ -72,48 +66,16 @@ reg resetQ2;
     end 
     if ((read_en == 1'b1) && (tmp_empty == 1'b0)) begin 
       data_out = ram[read_ptr];
-      //$display("time ^^^^^^^^^ %d ns: read_ptr = %d, ram[read_ptr] = %x ", $time, read_ptr, ram[read_ptr] );
+      //$display("time ^^^^ %d ns: read_ptr = %d, ram[read_ptr] = %x ", $time, read_ptr, ram[read_ptr] );
       tmp_full <= 1'b0; 
       read_ptr = (read_ptr + 1) % FIFO_DEPTH; 
       if ( read_ptr == write_ptr ) begin 
         tmp_empty <= 1'b1; 
       end
-
-      if(data_out[65] == 1) begin
-        resetQ <=1;
-        /*
-        for(integer i=0; i< FIFO_DEPTH; i++) begin
-          ram[(i+2)%FIFO_DEPTH] <=0;
-        end
-        */
-      end
-      else begin
-        resetQ <=0;
-      end
+    end
+  end
 
 
-/*
-
-      if(ram[read_ptr][64] == 1) begin
-        new_flag =0;
-      end
-      if(new_flag) begin
-        ram[new_count] =0;
-        new_count = (new_count + 1) % FIFO_DEPTH;  
-      end
-
-
-      if(ram[read_ptr][65] == 1) begin
-        new_flag =1;
-        new_count = read_ptr;
-      end
- */
-
-    end 
-  end 
-always@(posedge clk) begin
-resetQ2 <= resetQ;
-end
 
 endmodule //fifo 
 
@@ -125,11 +87,9 @@ module eth_rcv_fsm #(parameter FIFO_DEPTH = 5 ) (
   input inEop,
   input vld,
   output reg outWrEn,
-  output reg [65:0] outData  //65:0 data and bit 64 indicating start and bit 65 indicating end
+  output reg [65:0] outData  // {EOP, SOP, DATA[63:0]}
 
 );
-
-
 
 reg[2:0] nState;
 reg[2:0] pState;
@@ -175,8 +135,7 @@ always @(posedge clk) begin
   else begin
     pState <= nState;
   end
-  
-    
+     
 end
   
 always @(posedge clk) begin
@@ -203,6 +162,7 @@ module eth_send_fsm #(parameter FIFO_DEPTH = 5 )(input clk,
   output reg outSop,
   output reg outEop,
   output reg outRdEn,
+  
   output reg [63:0] outData,
   output reg outvld
 );
@@ -220,9 +180,8 @@ reg[47:0] src_addr;
 
 integer read_ptr, read_ptr2;
 
-  reg [65:0]inData_d[0:FIFO_DEPTH-1];
-  reg[47:0] swap_var;  
-  bit my_flag;
+reg [65:0]inData_d[0:FIFO_DEPTH-1];
+reg[47:0] swap_var;  
 integer i =0;
 //compute next state
   always @(pState or inData[0] or inData[1] or inData[2]  ) begin
@@ -278,24 +237,18 @@ always @(posedge clk) begin
 end
   
 always @(posedge clk) begin
-  if(resetN==0) begin
+  if(resetN==0 || outEop == 1) begin
     inData_d[0] <= 0;
     inData_d[1] <= 0;
     inData_d[2] <= 0;
     inData_d[3] <= 0;
+    inData_d[4] <= 0;
     outvld =0;
   end else begin
 // $display(" [%d ns] : i = %d, inData[i] = %x, inData_d[i] = %x",$time, i,  inData[i], inData_d[i]);
     inData_d[i] <= inData[i];
     i = (i+1) % FIFO_DEPTH;
-/*
-    for(integer i =0; i< FIFO_DEPTH; i=i+1)
-      begin
-        $display(" [%d ns] : i = %d, inData[i] = %x, inData_d[i] = %x",$time, i,  inData[i], inData_d[i]);
-        $display(" ------------- read_ptr2 = %d, my_flag = %b ", read_ptr2, my_flag);
-        inData_d[i] <= inData[i];
-      end
-*/    
+   
   end
 end
   
@@ -308,7 +261,6 @@ always @(posedge clk) begin
     outSop <=0;
     outRdEn <=0;
   end else if(pState == DATA_RCV) begin // (nState == DATA_RCV | nState == DEST_ADDR_RCVD ) begin
-     my_flag = 0;
     if(inData_d[read_ptr2][64] == 1) begin
       $display("inData_d[read_ptr2] = %x", inData_d[read_ptr2]);
       $display("inData_d[read_ptr2 + 1] = %x", inData_d[((read_ptr2 + 1)  % FIFO_DEPTH)]);
@@ -317,12 +269,7 @@ always @(posedge clk) begin
       { inData_d[read_ptr2][15:0], inData_d[((read_ptr2 + 1)  % FIFO_DEPTH)][63:32]} = inData_d[read_ptr2][63:16];
       inData_d[read_ptr2][63:16] = swap_var;
 
-      my_flag =1;
-      /*
-      { inData_d[read_ptr2][15:0], inData_d[read_ptr2 + 1][63:32]} <= inData_d[read_ptr2][63:16];
-      inData_d[read_ptr2][63:16] <= { inData_d[read_ptr2][15:0], inData_d[read_ptr2 + 1][63:32]};
-*/ 
-     $display("AFTER SWAP, \n inData_d[read_ptr2] = %x", inData_d[read_ptr2]);
+      $display("*********AFTER SWAP*********** \ninData_d[read_ptr2] = %x", inData_d[read_ptr2]);
       $display("inData_d[read_ptr2 + 1] = %x", inData_d[((read_ptr2 + 1)  % FIFO_DEPTH)]);
 
     end
@@ -372,12 +319,12 @@ wire fifo_full;
 reg fifo_rd_en;
 reg [6:0]counter;
 
-  reg [65:0]fifo_queue[0:4];
+reg [65:0]fifo_queue[0:4];
   
   
   fifo #(.FIFO_DEPTH(5), .FIFO_WIDTH(66)) inA_queue(
   .clk(clk),
-  .resetN(resetN),
+  .resetN(resetN && ~outEopA),
   .write_en(fifo_wr_en),
   .read_en(fifo_rd_en),
   .data_in(fifo_wr_data),

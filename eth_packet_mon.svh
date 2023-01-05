@@ -30,7 +30,7 @@ class eth_packet_mon_c;
    count=0;
    forever @(posedge rtl_intf.clk) begin
      if(rtl_intf.eth_mon_cb.inSop) begin
-       $display("time=%t packet_mon::seeing Sop on PortA input",$time);
+       $display("time=%t packet_mon::seeing Sop on INPUT",$time);
        pkt = new();
        count=1;
        pkt.dst_addr=rtl_intf.eth_mon_cb.inData[63:16];
@@ -43,7 +43,7 @@ class eth_packet_mon_c;
      end else if (rtl_intf.eth_mon_cb.inEop) begin
        pkt.pkt_crc=rtl_intf.eth_mon_cb.inData;
        $display("time=%t packet_mon::sample_port_input_pkt , pkt.pkt_crc=%h", $time, pkt.pkt_crc);
-       $display("time=%0t packet_mon: Saw packet on port input: pkt=%s",$time, pkt.to_string());
+       $display("time=%0t packet_mon: Saw packet on INPUT: pkt=%s",$time, pkt.to_string());
        mbx_out[0].put(pkt);
        count=0;
      end else if(count >0) begin
@@ -61,7 +61,7 @@ class eth_packet_mon_c;
    count=0;
    forever @(posedge rtl_intf.clk) begin
      if(rtl_intf.eth_mon_cb.outSop) begin
-       $display("time=%t packet_mon::seeing Sop on Port output",$time);
+       $display("time=%t packet_mon::seeing Sop on OUTPUT",$time);
        pkt = new();
        count=1;
        pkt.dst_addr=rtl_intf.eth_mon_cb.outData[63:16];
@@ -75,7 +75,7 @@ class eth_packet_mon_c;
      end else if (rtl_intf.eth_mon_cb.outEop) begin
        pkt.pkt_crc=rtl_intf.eth_mon_cb.outData;
        $display("time=%t packet_mon::sample_port_output_pkt , pkt.pkt_crc=%h", $time, pkt.pkt_crc);
-       $display("time=%0t packet_mon: Saw packet on port A output: pkt=%s",$time, pkt.to_string());
+       $display("time=%0t packet_mon: Saw packet on OUTPUT: pkt=%s",$time, pkt.to_string());
        mbx_out[1].put(pkt);
        count=0;
      end else if(count >0) begin

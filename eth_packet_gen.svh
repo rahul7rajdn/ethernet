@@ -15,7 +15,7 @@ class eth_packet_gen_c;
   //Method
   task run; 
     eth_packet_c pkt;
-    num_pkts = 3;
+    num_pkts = 4;
     for (int i=0; i < num_pkts; i++) begin
       pkt = new();
       pkt.build_custom_random();

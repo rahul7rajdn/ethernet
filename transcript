@@ -11,7 +11,7 @@
 # 10 compiles, 0 failed with no errors.
 vsim work.packet_tb_top
 # vsim work.packet_tb_top 
-# Start time: 12:32:35 on Jan 05,2023
+# Start time: 01:31:46 on Jan 06,2023
 # Loading sv_std.std
 # Loading work.eth_sw_if
 # Loading work.packet_tb_env_pkg
@@ -24,10 +24,6 @@ vsim work.packet_tb_top
 # WARNING: No extended dataflow license exists
 add wave sim:/packet_tb_top/*
 run
-run
-run
-run
-run -all
 # Create mailbox =0 for mon-check
 # Create mailbox =1 for mon-check
 # Created Packet TB Env
@@ -40,117 +36,10 @@ run -all
 # packet ::append_data_packet pkt_full size  =        1280
 # packet :: entered append_data_packet
 # packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                8362 packet_mon::seeing Sop on PortA input
-# time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# Break key hit
-# Simulation stop requested.
-quit -sim
-# End time: 12:39:17 on Jan 05,2023, Elapsed time: 0:06:42
-# Errors: 0, Warnings: 2
-vsim work.packet_tb_top
-# vsim work.packet_tb_top 
-# Start time: 12:39:24 on Jan 05,2023
-# Loading sv_std.std
-# Loading work.eth_sw_if
-# Loading work.packet_tb_env_pkg
-# Loading work.testbench_sv_unit
-# Loading work.packet_tb_top
-# Loading work.eth_sw
-# Loading work.fifo
-# Loading work.eth_rcv_fsm
-# Loading work.eth_send_fsm
-# WARNING: No extended dataflow license exists
-add wave sim:/packet_tb_top/*
-run
-run
-run
-add wave -position insertpoint  \
-sim:/packet_tb_top/packet_tb_env
-add wave -position insertpoint sim:/packet_tb_top/*
-add wave -position insertpoint sim:/packet_tb_top/*
-add wave -position insertpoint sim:/packet_tb_top/*
-add wave -position insertpoint sim:/packet_tb_top/*
-run
-run
-run -continue
-run -all
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
 # packet :: entered append_data_packet
 # packet ::append_data_packet pkt_full size  =        1280
 # packet :: entered append_data_packet
@@ -160,7 +49,7 @@ run -all
 # packet :: entered append_data_packet
 # packet ::append_data_packet pkt_full size  =        1280
 # packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# packet as string = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
 # packet_drv::run
 # packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
@@ -168,1020 +57,493 @@ run -all
 # packet_chk::run() called
 # packet_chk::process_pkt on port=0 called
 # packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
+# time=                1630 packet_mon::seeing Sop on INPUT
 # time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
 # time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
 # inData_d[read_ptr2] = 1abcd12345678ee11
 # inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1ee11ff22dd33abcd
 # inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
+# time=                1670 packet_mon::seeing Sop on OUTPUT
 # time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
 # time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
 # packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
 # time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=2266 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=2266 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
 # time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
+# time=2306 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=2306 packet_chk::got packet on port=1 pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=                3874 packet_mon::seeing Sop on INPUT
 # time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
 # time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
 # inData_d[read_ptr2] = 1ee11ff22dd33abcd
 # inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                8362 packet_mon::seeing Sop on PortA input
-# time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# Break key hit
-# Simulation stop requested.
-restart -f
-# Closing VCD file "test_pkt.vcd"
-add wave sim:/packet_tb_top/*
-run
-run
-run
-env ..
-# sim:/packet_tb_top
-env ..
-# sim:/packet_tb_top
-run
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-run
-run
-run
-run
-run
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
+# *********AFTER SWAP*********** 
 # inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-run
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
 # inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-run
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-run
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-run
-# time=                8362 packet_mon::seeing Sop on PortA input
-# time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-run
-add wave -position insertpoint  \
-sim:/packet_tb_top/packet_tb_env
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/inA_queue/ram
-restart -f
-# Closing VCD file "test_pkt.vcd"
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-run -continue
-run -continue
-run
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-run -continue
-run -continue
-run
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/inA_queue/read_ptr
-restart -f
-# Closing VCD file "test_pkt.vcd"
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
+# time=                3910 packet_mon::seeing Sop on OUTPUT
 # time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
 # time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
 # packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
 # time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Compile of design.sv was successful.
-# Compile of new_ethernet.sv was successful.
-# Compile of eth_packet.svh was successful.
-# Compile of eth_packet_chk.svh was successful.
-# Compile of eth_packet_drv.svh was successful.
-# Compile of eth_packet_gen.svh was successful.
-vsim work.packet_tb_top
-# End time: 13:24:28 on Jan 05,2023, Elapsed time: 0:45:04
-# Errors: 0, Warnings: 1
-# vsim work.packet_tb_top 
-# Start time: 13:24:29 on Jan 05,2023
-# Loading sv_std.std
-# Loading work.eth_sw_if
-# Loading work.packet_tb_env_pkg
-# Loading work.testbench_sv_unit
-# Loading work.packet_tb_top
-# Loading work.eth_sw
-# Loading work.fifo
-# Loading work.eth_rcv_fsm
-# Loading work.eth_send_fsm
-# WARNING: No extended dataflow license exists
-# Compile of eth_packet_mon.svh was successful.
-# Compile of eth_sw_if.svh was successful.
-# Compile of packet_tb_env.svh was successful.
-add wave sim:/packet_tb_top/*
-# Compile of testbench.sv was successful.
-# 10 compiles, 0 failed with no errors.
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/inA_queue/resetQ
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/inA_queue/ram
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/portA_send_fsm/inData
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/portA_send_fsm/inData_d
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                8362 packet_mon::seeing Sop on PortA input
-# time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# Compile of design.sv was successful.
-# Compile of new_ethernet.sv was successful.
-# Compile of eth_packet.svh was successful.
-# Compile of eth_packet_chk.svh was successful.
-# Compile of eth_packet_drv.svh was successful.
-# Compile of eth_packet_gen.svh was successful.
-# Compile of eth_packet_mon.svh was successful.
-vsim work.packet_tb_top
-# End time: 13:34:50 on Jan 05,2023, Elapsed time: 0:10:21
-# Errors: 0, Warnings: 2
-# vsim work.packet_tb_top 
-# Start time: 13:34:50 on Jan 05,2023
-# Loading sv_std.std
-# Loading work.eth_sw_if
-# Loading work.packet_tb_env_pkg
-# Loading work.testbench_sv_unit
-# Loading work.packet_tb_top
-# Loading work.eth_sw
-# Loading work.fifo
-# Loading work.eth_rcv_fsm
-# Loading work.eth_send_fsm
-# WARNING: No extended dataflow license exists
-# Compile of eth_sw_if.svh was successful.
-# Compile of packet_tb_env.svh was successful.
-# Compile of testbench.sv was successful.
-# 10 compiles, 0 failed with no errors.
-add wave sim:/packet_tb_top/*
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/inA_queue/ram
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/inA_queue/read_ptr
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/portA_send_fsm/inData_d
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/portA_send_fsm/inData
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                8362 packet_mon::seeing Sop on PortA input
-# time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/inA_queue/resetQ
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/inA_queue/resetQ2
-restart -f
-# Closing VCD file "test_pkt.vcd"
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.eth_sw_if
-# Loading work.packet_tb_env_pkg
-# Loading work.testbench_sv_unit
-# Loading work.packet_tb_top
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                8362 packet_mon::seeing Sop on PortA input
-# time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# Compile of design.sv was successful.
-# Compile of new_ethernet.sv was successful.
-# Compile of eth_packet.svh was successful.
-# Compile of eth_packet_chk.svh was successful.
-# Compile of eth_packet_drv.svh was successful.
-# Compile of eth_packet_gen.svh was successful.
-# Compile of eth_packet_mon.svh was successful.
-# Compile of eth_sw_if.svh was successful.
-# Compile of packet_tb_env.svh was successful.
-# Compile of testbench.sv was successful.
-# 10 compiles, 0 failed with no errors.
-restart -f
-# Closing VCD file "test_pkt.vcd"
-# Loading work.eth_sw_if
-# Loading work.packet_tb_env_pkg
-# Loading work.testbench_sv_unit
-# Loading work.packet_tb_top
-# Loading work.eth_sw
-# Loading work.fifo
-# Loading work.eth_rcv_fsm
-# Loading work.eth_send_fsm
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                6786 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=6786 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6786 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) mismatches
-# time=                8362 packet_mon::seeing Sop on PortA input
-# time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# Compile of design.sv was successful.
-# Compile of new_ethernet.sv was successful.
-# Compile of eth_packet.svh was successful.
-# Compile of eth_packet_chk.svh was successful.
-# Compile of eth_packet_drv.svh was successful.
-# Compile of eth_packet_gen.svh was successful.
-restart -f
-# Closing VCD file "test_pkt.vcd"
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.eth_sw
-# Loading work.fifo
-# Loading work.eth_rcv_fsm
-# Loading work.eth_send_fsm
-# Compile of eth_packet_mon.svh was successful.
-# Compile of eth_sw_if.svh was successful.
-# Compile of packet_tb_env.svh was successful.
-# Compile of testbench.sv was successful.
-# 10 compiles, 0 failed with no errors.
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=4510 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=4510 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd  
 # time=                4546 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=4546 packet_mon: Saw packet on port A output: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=4546 packet_chk::got packet on port=1 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                6118 packet_mon::seeing Sop on PortA input
+# time=4546 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=4546 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=                6118 packet_mon::seeing Sop on INPUT
 # time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
 # time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
 # inData_d[read_ptr2] = 1ee11ff22dd33ee11
 # inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1ee11ff22dd33ee11
 # inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
+# time=                6150 packet_mon::seeing Sop on OUTPUT
 # time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
 # time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
 # packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
 # time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=6754 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=6754 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd  
 # time=                6786 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=6786 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6786 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                8362 packet_mon::seeing Sop on PortA input
+# time=6786 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=6786 packet_chk::got packet on port=1 pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=                8362 packet_mon::seeing Sop on INPUT
 # time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
 # time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
 # inData_d[read_ptr2] = 1abcd12345678abcd
 # inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd12345678abcd
 # inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# Compile of design.sv was successful.
-# Compile of new_ethernet.sv was successful.
-# Compile of eth_packet.svh was successful.
-# Compile of eth_packet_chk.svh was successful.
-# Compile of eth_packet_drv.svh was successful.
-restart -f
-# Closing VCD file "test_pkt.vcd"
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.eth_sw_if
-# Loading work.packet_tb_env_pkg
-# Loading work.testbench_sv_unit
-# Loading work.packet_tb_top
-# Loading work.eth_sw
-# Loading work.fifo
-# Loading work.eth_rcv_fsm
-# Loading work.eth_send_fsm
-# Compile of eth_packet_gen.svh was successful.
-# Compile of eth_packet_mon.svh was successful.
-# Compile of eth_sw_if.svh was successful.
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
+# time=                8390 packet_mon::seeing Sop on OUTPUT
+# time=                8390 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
+# time=                8394 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
+# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
+# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=8998 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=8998 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# time=                9026 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=9026 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=9026 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+run
+# time=               10606 packet_mon::seeing Sop on INPUT
+# time=               10606 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
+# time=               10610 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# inData_d[read_ptr2] = 1abcd12345678abcd
 # inData_d[read_ptr2 + 1] = 00000000000000000
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee1100000000abcd
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd00000000abcd
 # inData_d[read_ptr2 + 1] = 01234567800000000
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee1100000000
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0dee1640f98e31353
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11dee1640fabcd
-# inData_d[read_ptr2 + 1] = 01234567898e31353
-# time=                1690 packet_mon::seeing Sop on Port output
-# time=                1690 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11dee1640f
-# time=                1694 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
+# time=               10630 packet_mon::seeing Sop on OUTPUT
+# time=               10630 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd00000000
+# time=               10634 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
 # packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11dee1640f, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11dee1640f, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) mismatches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# time=               11242 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=11242 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=11242 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# time=               11266 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=11266 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd00000000, src_addr =abcd12345678, crc=abcdaefd
+# time=11266 packet_chk::got packet on port=1 pkt=dst_addr=abcd00000000, src_addr =abcd12345678, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT mismatches
+# ================================================================================================
+# time=               12850 packet_mon::seeing Sop on INPUT
+# time=               12850 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
+# time=               12854 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
 # inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 0a4cb86e918d49354
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcda4cb86e9ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd3318d49354
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcda4cb86e9
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 0a4cb86e918d49354
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcda4cb86e9ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd3318d49354
-# time=                3930 packet_mon::seeing Sop on Port output
-# time=                3930 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcda4cb86e9
-# time=                3934 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
+# inData_d[read_ptr2 + 1] = 012345678e30dc19d
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd12345678ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd33e30dc19d
+# time=               12890 packet_mon::seeing Sop on OUTPUT
+# time=               12890 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
+# time=               12894 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
 # packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
+# time=               13486 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=13486 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=13486 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd  
+# time=               13526 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=13526 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=13526 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=               15094 packet_mon::seeing Sop on INPUT
+# time=               15094 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
+# time=               15098 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
 # inData_d[read_ptr2] = 1ee11ff22dd33ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd333b88b48e
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1ee11ff22dd33ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd333b88b48e
+# time=               15130 packet_mon::seeing Sop on OUTPUT
+# time=               15130 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
+# time=               15134 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
+# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# time=               15730 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=15730 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=15730 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd  
+# time=               15766 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=15766 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=15766 packet_chk::got packet on port=1 pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=               17338 packet_mon::seeing Sop on INPUT
+# time=               17338 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
+# time=               17342 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# inData_d[read_ptr2] = 1ee11ff22dd33abcd
+# inData_d[read_ptr2 + 1] = 0123456784d8eccae
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd12345678ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd334d8eccae
+# time=               17370 packet_mon::seeing Sop on OUTPUT
+# time=               17370 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
+# time=               17374 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
+# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# time=               17974 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=17974 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=17974 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd  
+# time=               18006 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=18006 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=18006 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=               19582 packet_mon::seeing Sop on INPUT
+# time=               19582 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
+# time=               19586 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# inData_d[read_ptr2] = 1abcd12345678abcd
+# inData_d[read_ptr2 + 1] = 0123456789c67f21c
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd12345678abcd
+# inData_d[read_ptr2 + 1] = 0123456789c67f21c
+# time=               19610 packet_mon::seeing Sop on OUTPUT
+# time=               19610 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
+# time=               19614 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
+# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# time=               20218 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=20218 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=20218 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# time=               20246 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=20246 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=20246 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=               21826 packet_mon::seeing Sop on INPUT
+# time=               21826 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
+# time=               21830 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
+# inData_d[read_ptr2] = 1abcd12345678ee11
 # inData_d[read_ptr2 + 1] = 00000000000000000
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee1100000000ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd3300000000
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee1100000000
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1ee1100000000abcd
+# inData_d[read_ptr2 + 1] = 01234567800000000
+# time=               21850 packet_mon::seeing Sop on OUTPUT
+# time=               21850 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee1100000000
+# time=               21854 packet_mon::sample_port_output_pkt, pkt.src_addr= abcdff22dd33
+# time=               22462 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=22462 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=22462 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
+# time=               22486 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=22486 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=ee1100000000, src_addr =abcdff22dd33, crc=abcdaefd
+# time=22486 packet_chk::got packet on port=1 pkt=dst_addr=ee1100000000, src_addr =abcdff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT mismatches
+# ================================================================================================
+restart -f
+# Closing VCD file "test_pkt.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+# Create mailbox =0 for mon-check
+# Create mailbox =1 for mon-check
+# Created Packet TB Env
+# packet_tb_env::run() called
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet :: entered append_data_packet
+# packet ::append_data_packet pkt_full size  =        1280
+# packet_gen::run called
+# packet as string = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# packet_drv::run
+# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# packet_mon::run called
+# packet_chk::run() called
+# packet_chk::process_pkt on port=0 called
+# packet_chk::process_pkt on port=1 called
+# time=                1630 packet_mon::seeing Sop on INPUT
+# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
+# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
+# inData_d[read_ptr2] = 1abcd12345678ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1ee11ff22dd33abcd
+# inData_d[read_ptr2 + 1] = 012345678b00c7844
+# time=                1670 packet_mon::seeing Sop on OUTPUT
+# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
+# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
+# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=2266 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=2266 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
+# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=2306 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=2306 packet_chk::got packet on port=1 pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=                3874 packet_mon::seeing Sop on INPUT
+# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
+# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# inData_d[read_ptr2] = 1ee11ff22dd33abcd
+# inData_d[read_ptr2 + 1] = 012345678a92b2c87
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd12345678ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
+# time=                3910 packet_mon::seeing Sop on OUTPUT
+# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
+# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
+# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=4510 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=4510 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd  
+# time=                4546 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=4546 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=4546 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=                6118 packet_mon::seeing Sop on INPUT
+# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
+# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
 # inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0fb16f34d9bb5ff02
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11fb16f34dee11
-# inData_d[read_ptr2 + 1] = 0ff22dd339bb5ff02
-# time=                6170 packet_mon::seeing Sop on Port output
-# time=                6170 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11fb16f34d
-# time=                6174 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
+# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1ee11ff22dd33ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
+# time=                6150 packet_mon::seeing Sop on OUTPUT
+# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
+# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
 # packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
 # time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                8362 packet_mon::seeing Sop on PortA input
+# time=6754 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=6754 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd  
+# time=                6786 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=6786 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=6786 packet_chk::got packet on port=1 pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=                8362 packet_mon::seeing Sop on INPUT
 # time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
 # time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# inData_d[read_ptr2] = 1abcd12345678abcd
+# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd12345678abcd
+# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
+# time=                8390 packet_mon::seeing Sop on OUTPUT
+# time=                8390 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
+# time=                8394 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
+# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
 # time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# Compile of packet_tb_env.svh was successful.
-# Compile of testbench.sv was successful.
-# 10 compiles, 0 failed with no errors.
+# time=8998 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=8998 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# time=                9026 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=9026 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=9026 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=               10606 packet_mon::seeing Sop on INPUT
+# time=               10606 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
+# time=               10610 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# inData_d[read_ptr2] = 1abcd12345678abcd
+# inData_d[read_ptr2 + 1] = 00000000000000000
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd00000000abcd
+# inData_d[read_ptr2 + 1] = 01234567800000000
+# time=               10630 packet_mon::seeing Sop on OUTPUT
+# time=               10630 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd00000000
+# time=               10634 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
+# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# time=               11242 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=11242 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=11242 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# time=               11266 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=11266 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd00000000, src_addr =abcd12345678, crc=abcdaefd
+# time=11266 packet_chk::got packet on port=1 pkt=dst_addr=abcd00000000, src_addr =abcd12345678, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT mismatches
+# ================================================================================================
+# time=               12850 packet_mon::seeing Sop on INPUT
+# time=               12850 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
+# time=               12854 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# inData_d[read_ptr2] = 1ee11ff22dd33abcd
+# inData_d[read_ptr2 + 1] = 012345678e30dc19d
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd12345678ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd33e30dc19d
+# time=               12890 packet_mon::seeing Sop on OUTPUT
+# time=               12890 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
+# time=               12894 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
+# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# time=               13486 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=13486 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=13486 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd  
+# time=               13526 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=13526 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=13526 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=               15094 packet_mon::seeing Sop on INPUT
+# time=               15094 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
+# time=               15098 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
+# inData_d[read_ptr2] = 1ee11ff22dd33ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd333b88b48e
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1ee11ff22dd33ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd333b88b48e
+# time=               15130 packet_mon::seeing Sop on OUTPUT
+# time=               15130 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
+# time=               15134 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
+# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# time=               15730 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=15730 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=15730 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd  
+# time=               15766 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=15766 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=15766 packet_chk::got packet on port=1 pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=               17338 packet_mon::seeing Sop on INPUT
+# time=               17338 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
+# time=               17342 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# inData_d[read_ptr2] = 1ee11ff22dd33abcd
+# inData_d[read_ptr2 + 1] = 0123456784d8eccae
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd12345678ee11
+# inData_d[read_ptr2 + 1] = 0ff22dd334d8eccae
+# time=               17370 packet_mon::seeing Sop on OUTPUT
+# time=               17370 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
+# time=               17374 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
+# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# time=               17974 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=17974 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=17974 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd  
+# time=               18006 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=18006 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=18006 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=               19582 packet_mon::seeing Sop on INPUT
+# time=               19582 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
+# time=               19586 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# inData_d[read_ptr2] = 1abcd12345678abcd
+# inData_d[read_ptr2 + 1] = 0123456789c67f21c
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd12345678abcd
+# inData_d[read_ptr2 + 1] = 0123456789c67f21c
+# time=               19610 packet_mon::seeing Sop on OUTPUT
+# time=               19610 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
+# time=               19614 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
+# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
+# packet_drv::drive_pkt: numDwords=160 
+# time=               20218 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=20218 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=20218 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# time=               20246 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=20246 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=20246 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=               21826 packet_mon::seeing Sop on INPUT
+# time=               21826 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
+# time=               21830 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
+# inData_d[read_ptr2] = 1abcd12345678ee11
+# inData_d[read_ptr2 + 1] = 00000000000000000
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1ee1100000000abcd
+# inData_d[read_ptr2 + 1] = 01234567800000000
+# time=               21850 packet_mon::seeing Sop on OUTPUT
+# time=               21850 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee1100000000
+# time=               21854 packet_mon::sample_port_output_pkt, pkt.src_addr= abcdff22dd33
+# time=               22462 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
+# time=22462 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=22462 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
+# time=               22486 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=22486 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=ee1100000000, src_addr =abcdff22dd33, crc=abcdaefd
+# time=22486 packet_chk::got packet on port=1 pkt=dst_addr=ee1100000000, src_addr =abcdff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT mismatches
+# ================================================================================================
 # Compile of design.sv was successful.
 # Compile of new_ethernet.sv was successful.
 # Compile of eth_packet.svh was successful.
 # Compile of eth_packet_chk.svh was successful.
+# Compile of eth_packet_drv.svh was successful.
+# Compile of eth_packet_gen.svh was successful.
+# Compile of eth_packet_mon.svh was successful.
+# Compile of eth_sw_if.svh was successful.
+# Compile of packet_tb_env.svh was successful.
+# Compile of testbench.sv was successful.
+# 10 compiles, 0 failed with no errors.
 restart -f
 # Closing VCD file "test_pkt.vcd"
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.eth_sw_if
 # Loading work.packet_tb_env_pkg
 # Loading work.testbench_sv_unit
@@ -1190,13 +552,6 @@ restart -f
 # Loading work.fifo
 # Loading work.eth_rcv_fsm
 # Loading work.eth_send_fsm
-# Compile of eth_packet_drv.svh was successful.
-# Compile of eth_packet_gen.svh was successful.
-# Compile of eth_packet_mon.svh was successful.
-# Compile of eth_sw_if.svh was successful.
-# Compile of packet_tb_env.svh was successful.
-# Compile of testbench.sv was successful.
-# 10 compiles, 0 failed with no errors.
 run
 # Create mailbox =0 for mon-check
 # Create mailbox =1 for mon-check
@@ -1219,589 +574,89 @@ run
 # packet_chk::run() called
 # packet_chk::process_pkt on port=0 called
 # packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
+# time=                1630 packet_mon::seeing Sop on INPUT
 # time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
 # time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
 # inData_d[read_ptr2] = 1abcd12345678ee11
 # inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1ee11ff22dd33abcd
 # inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
+# time=                1670 packet_mon::seeing Sop on OUTPUT
 # time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
 # time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
 # packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
 # time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=2266 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=2266 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
 # time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
+# time=2306 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=2306 packet_chk::got packet on port=1 pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=                3874 packet_mon::seeing Sop on INPUT
 # time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
 # time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
 # inData_d[read_ptr2] = 1ee11ff22dd33abcd
 # inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1abcd12345678ee11
 # inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
+# time=                3910 packet_mon::seeing Sop on OUTPUT
 # time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
 # time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
 # packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
 # time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                6118 packet_mon::seeing Sop on PortA input
+# time=4510 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
+# time=4510 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd  
+# time=                4546 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=4546 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=4546 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=                6118 packet_mon::seeing Sop on INPUT
 # time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
 # time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
 # inData_d[read_ptr2] = 1ee11ff22dd33ee11
 # inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
+# *********AFTER SWAP*********** 
+# inData_d[read_ptr2] = 1ee11ff22dd33ee11
 # inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
+# time=                6150 packet_mon::seeing Sop on OUTPUT
 # time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
 # time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
 # packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
 # packet_drv::drive_pkt: numDwords=160 
 # time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=6754 packet_mon: Saw packet on port INPUT: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=6754 packet_chk::got packet on port=0 pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd  
 # time=                6786 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=6786 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6786 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) mismatches
-# time=                8362 packet_mon::seeing Sop on PortA input
+# time=6786 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
+# time=6786 packet_chk::got packet on port=1 pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
+# time=                8362 packet_mon::seeing Sop on INPUT
 # time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
 # time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
 # inData_d[read_ptr2] = 1abcd12345678abcd
 # inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# Compile of design.sv was successful.
-# Compile of new_ethernet.sv was successful.
-# Compile of eth_packet.svh was successful.
-run
-# Compile of eth_packet_chk.svh was successful.
-# Compile of eth_packet_drv.svh was successful.
-restart -f
-# Closing VCD file "test_pkt.vcd"
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.eth_sw_if
-# Loading work.packet_tb_env_pkg
-# Loading work.testbench_sv_unit
-# Loading work.packet_tb_top
-# Loading work.eth_sw
-# Loading work.fifo
-# Loading work.eth_rcv_fsm
-# Loading work.eth_send_fsm
-# Compile of eth_packet_gen.svh was successful.
-# Compile of eth_packet_mon.svh was successful.
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                4546 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=4546 packet_mon: Saw packet on port A output: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=4546 packet_chk::got packet on port=1 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                6786 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=6786 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6786 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                8362 packet_mon::seeing Sop on PortA input
-# time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
+# *********AFTER SWAP*********** 
 # inData_d[read_ptr2] = 1abcd12345678abcd
 # inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
+# time=                8390 packet_mon::seeing Sop on OUTPUT
+# time=                8390 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
+# time=                8394 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
 # time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# Compile of eth_sw_if.svh was successful.
-# Compile of packet_tb_env.svh was successful.
-# Compile of testbench.sv was successful.
-# 10 compiles, 0 failed with no errors.
-# Compile of design.sv was successful.
-# Compile of new_ethernet.sv was successful.
-# Compile of eth_packet.svh was successful.
-# Compile of eth_packet_chk.svh was successful.
-# Compile of eth_packet_drv.svh was successful.
-# Compile of eth_packet_gen.svh was successful.
-# Compile of eth_packet_mon.svh was successful.
-# Compile of eth_sw_if.svh was successful.
-# Compile of packet_tb_env.svh was successful.
-vsim work.packet_tb_top
-# End time: 14:13:29 on Jan 05,2023, Elapsed time: 0:38:39
-# Errors: 0, Warnings: 2
-# vsim work.packet_tb_top 
-# Start time: 14:13:30 on Jan 05,2023
-# Loading sv_std.std
-# Loading work.eth_sw_if
-# Loading work.packet_tb_env_pkg
-# Loading work.testbench_sv_unit
-# Loading work.packet_tb_top
-# Loading work.eth_sw
-# Loading work.fifo
-# Loading work.eth_rcv_fsm
-# Loading work.eth_send_fsm
-# WARNING: No extended dataflow license exists
-# Compile of testbench.sv was successful.
-# 10 compiles, 0 failed with no errors.
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-add wave sim:/packet_tb_top/*
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                4546 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=4546 packet_mon: Saw packet on port A output: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=4546 packet_chk::got packet on port=1 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                6786 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=6786 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6786 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                8362 packet_mon::seeing Sop on PortA input
-# time=                8362 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                8366 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678abcd
-# inData_d[read_ptr2 + 1] = 0123456782b2cdd3c
-# time=                8410 packet_mon::seeing Sop on Port output
-# time=                8410 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                8414 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# time=                8998 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=8998 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# time=8998 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
-# Compile of design.sv was successful.
-# Compile of new_ethernet.sv was successful.
-# Compile of eth_packet.svh was successful.
-# Compile of eth_packet_chk.svh was successful.
-# Compile of eth_packet_drv.svh was successful.
-# Compile of eth_packet_gen.svh was successful.
-# Compile of eth_packet_mon.svh was successful.
-# Compile of eth_sw_if.svh was successful.
-# Compile of packet_tb_env.svh was successful.
-# Compile of testbench.sv was successful.
-# 10 compiles, 0 failed with no errors.
-restart -f
-# Closing VCD file "test_pkt.vcd"
-# Loading work.eth_sw_if
-# Loading work.packet_tb_env_pkg
-# Loading work.testbench_sv_unit
-# Loading work.packet_tb_top
-# Loading work.eth_sw
-# Loading work.fifo
-# Loading work.eth_rcv_fsm
-# Loading work.eth_send_fsm
-add wave -position insertpoint  \
-sim:/packet_tb_top/eth_sw1/inA_queue/ram
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                4546 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=4546 packet_mon: Saw packet on port A output: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=4546 packet_chk::got packet on port=1 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                6786 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=6786 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6786 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-
-clear
-# invalid command name "clear"
-
-
-
-
-
-
-
-restart -f
-# Closing VCD file "test_pkt.vcd"
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                4546 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=4546 packet_mon: Saw packet on port A output: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=4546 packet_chk::got packet on port=1 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                6786 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=6786 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6786 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-restart -f
-# Closing VCD file "test_pkt.vcd"
-run
-# Create mailbox =0 for mon-check
-# Create mailbox =1 for mon-check
-# Created Packet TB Env
-# packet_tb_env::run() called
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet :: entered append_data_packet
-# packet ::append_data_packet pkt_full size  =        1280
-# packet_gen::run called
-# packet as string = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# packet_drv::run
-# packet_drv::Got packet = dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# packet_mon::run called
-# packet_chk::run() called
-# packet_chk::process_pkt on port=0 called
-# packet_chk::process_pkt on port=1 called
-# time=                1630 packet_mon::seeing Sop on PortA input
-# time=                1630 packet_mon::sample_port_input_pkt , pkt.dst_addr=abcd12345678
-# time=                1634 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33b00c7844
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678b00c7844
-# time=                1670 packet_mon::seeing Sop on Port output
-# time=                1670 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                1674 packet_mon::sample_port_output_pkt, pkt.src_addr= abcd12345678
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                2266 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=2266 packet_mon: Saw packet on port input: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=2266 packet_chk::got packet on port=0 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                2306 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=2306 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=2306 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                3874 packet_mon::seeing Sop on PortA input
-# time=                3874 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                3878 packet_mon::sample_port_input_pkt , pkt.src_addr=abcd12345678
-# inData_d[read_ptr2] = 1ee11ff22dd33abcd
-# inData_d[read_ptr2 + 1] = 012345678a92b2c87
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1abcd12345678ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33a92b2c87
-# time=                3910 packet_mon::seeing Sop on Port output
-# time=                3910 packet_mon::sample_port_output_pkt, pkt.dst_addr= abcd12345678
-# time=                3914 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# packet_drv::Got packet = dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd,Total Size =         1280
-# packet_drv::drive_pkt: numDwords=160 
-# time=                4510 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=4510 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=4510 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =abcd12345678, crc=abcdaefd
-# time=                4546 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=4546 packet_mon: Saw packet on port A output: pkt=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=4546 packet_chk::got packet on port=1 packet=dst_addr=abcd12345678, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
-# time=                6118 packet_mon::seeing Sop on PortA input
-# time=                6118 packet_mon::sample_port_input_pkt , pkt.dst_addr=ee11ff22dd33
-# time=                6122 packet_mon::sample_port_input_pkt , pkt.src_addr=ee11ff22dd33
-# inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# AFTER SWAP, 
-#  inData_d[read_ptr2] = 1ee11ff22dd33ee11
-# inData_d[read_ptr2 + 1] = 0ff22dd33aff0539e
-# time=                6150 packet_mon::seeing Sop on Port output
-# time=                6150 packet_mon::sample_port_output_pkt, pkt.dst_addr= ee11ff22dd33
-# time=                6154 packet_mon::sample_port_output_pkt, pkt.src_addr= ee11ff22dd33
-# time=                6754 packet_mon::sample_port_input_pkt , pkt.pkt_crc=abcdaefd
-# time=6754 packet_mon: Saw packet on port input: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6754 packet_chk::got packet on port=0 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=                6786 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
-# time=6786 packet_mon: Saw packet on port A output: pkt=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# time=6786 packet_chk::got packet on port=1 packet=dst_addr=ee11ff22dd33, src_addr =ee11ff22dd33, crc=abcdaefd
-# Packet on port 1 (output A) matches
+# time=8998 packet_mon: Saw packet on port INPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=8998 packet_chk::got packet on port=0 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# time=                9026 packet_mon::sample_port_output_pkt , pkt.pkt_crc=abcdaefd
+# time=9026 packet_mon: Saw packet on OUTPUT: pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd
+# time=9026 packet_chk::got packet on port=1 pkt=dst_addr=abcd12345678, src_addr =abcd12345678, crc=abcdaefd  
+# ================================================================================================
+# Packet on OUTPUT matches
+# ================================================================================================
