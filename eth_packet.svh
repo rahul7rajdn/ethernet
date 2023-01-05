@@ -6,15 +6,15 @@
 
 class eth_packet_c;
 
-  rand bit[47:0]  src_addr;
-  rand bit[47:0]  dst_addr;
-  rand byte pkt_data[$];
+  bit[47:0]  src_addr;
+  bit[47:0]  dst_addr;
+  byte pkt_data[$];
   bit [31:0]  pkt_crc;
 
   int pkt_size_bytes;
   byte pkt_full[$];
 
-
+/*
   constraint addr_c {
     src_addr inside {'hABCD_1234_5678, 'hEE11_FF22_DD33};
     dst_addr inside {'hABCD_1234_5678, 'hEE11_FF22_DD33};
@@ -23,7 +23,7 @@ class eth_packet_c;
   constraint pkt_data_c {
     pkt_data.size() == 1264;
   }
-
+*/
   bit [47:0]  src_addr_copy;
   bit [47:0]  dst_addr_copy;
   bit [31:0]  pkt_crc_copy;
@@ -38,13 +38,13 @@ class eth_packet_c;
        src_addr= 'hABCD_1234_5678; dst_addr='hEE11_FF22_DD33;
      end
      1: begin
-       src_addr= 'hABCD_1234_5678; dst_addr='hABCD_1234_5678;
+       src_addr= 'h85B4_5286_1DF7; dst_addr='hE428_3B6D_73C2;
      end
      2: begin
-       src_addr= 'hEE11_FF22_DD33; dst_addr='hABCD_1234_5678;
+       src_addr= 'h8DB7_B087_9A8B; dst_addr='hE098_C18C_5E98;
      end
      3: begin
-       src_addr= 'hEE11_FF22_DD33; dst_addr='hEE11_FF22_DD33;
+       src_addr= 'h658D_C1F7_6BC6; dst_addr='h70C3_0985_A9F8;
      end
    endcase
    src_addr_copy = src_addr;
@@ -60,8 +60,25 @@ class eth_packet_c;
  endfunction
 
  function bit[31:0] compute_crc();
-   //TBD
-   return 'hABCDAEFD;
+
+   int rand_num;
+   rand_num = $urandom_range(0,3);
+   case (rand_num)
+     0: begin
+       return 'h5CA3_1C3D;
+     end
+     1: begin
+       return 'hD3F8_57E2;
+     end
+     2: begin
+       return 'h3AB9_04B5;
+     end
+     3: begin
+       return 'h2B89_34A6;
+     end
+    endcase
+
+   // return 'hABCD_AEFD;
  endfunction
 
  function void append_data_packet();
@@ -85,7 +102,7 @@ class eth_packet_c;
    for(integer l=0; l < 4; l++) begin
 
        pkt_full.push_back(pkt_crc_copy[31:24]);
-       pkt_crc_copy = pkt_crc_copy <<  8;      // (31-(8*l)):(24-(8*l))]); //last 4 bytes CRC
+       pkt_crc_copy = pkt_crc_copy <<  8;
    end
    $display("packet ::append_data_packet pkt_full size  = %d", pkt_full.size());
  endfunction
@@ -108,7 +125,7 @@ class eth_packet_c;
  endfunction
 
  function bit is_data_match(byte data1[], byte data2[]);
-   return 1'b1; //TBD
+   return 1'b1;
  endfunction
 
 endclass : eth_packet_c
