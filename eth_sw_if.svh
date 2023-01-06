@@ -1,6 +1,6 @@
 
 //interface 
-
+`timescale 1ps/1ps
 
 interface eth_sw_if (
   input clk,
@@ -21,7 +21,7 @@ interface eth_sw_if (
 // Default clocking block
 
 default clocking  eth_mon_cb @(posedge clk);
-  default input #0.8ps output #0.8ps;
+  default input #0.8 output #0.8;
   input clk;
   input resetN;
   input inData; //input data, start and end of packet pulses
@@ -45,7 +45,7 @@ modport monitor_mp (
 // clocking block for output signals used by driver
 
 clocking  eth_drv_cb @(posedge clk);
-  default input #0.8ps output #0.8ps;
+  default input #0.8 output #0.8;
   input clk;
   input resetN;
   output inData; //input data, start and end of packet pulses

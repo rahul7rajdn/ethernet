@@ -3,6 +3,7 @@
 //----------------------
 `include "packet_tb_env.svh"
 `include "eth_sw_if.svh"
+`timescale 1ps/1ps
 
 import packet_tb_env_pkg::*; 
 
@@ -51,7 +52,7 @@ module packet_tb_top;
   packet_tb_env_c packet_tb_env;
 
   always begin
-    #1.5ps clk = ~clk;
+    #1.5 clk = ~clk;
   end
 
   initial begin

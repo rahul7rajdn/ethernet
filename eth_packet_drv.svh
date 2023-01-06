@@ -4,6 +4,7 @@
 `ifndef eth_packet_c
    `include "eth_packet.svh"
 `endif
+`timescale 1ps/1ps
 class eth_packet_drv_c;
 
   virtual interface eth_sw_if  rtl_intf;
@@ -33,7 +34,7 @@ class eth_packet_drv_c;
     count=0;
     numDwords= pkt.pkt_size_bytes/8;
     $display("packet_drv::drive_pkt: numDwords=%0d ",numDwords);
-    #1.602ns;
+    #1602;
     forever @(posedge rtl_intf.clk) begin
       rtl_intf.eth_drv_cb.inSop <=1'b0;
       rtl_intf.eth_drv_cb.inEop <=1'b0;
